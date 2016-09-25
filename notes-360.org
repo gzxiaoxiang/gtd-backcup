@@ -1,0 +1,147 @@
+* 网址								       :网址:
+**  21 天学会 Emacs 子龙山人 
+   https://zilongshanren.com/LearnEmacs/
+
+** Learn X in Y minutes
+   https://learnxinyminutes.com/
+
+** 子龙山人在github上的org配置
+  https://github.com/zilongshanren/spacemacs-private/blob/develop/layers/zilongshanren-org/packages.el
+  
+  [2016-09-14 周三 15:48]
+** 如何学会和学好思维导图 
+   http://www.jianshu.com/p/b35fd6756a26
+
+** 在Emacs中画思维导图 
+   http://www.cnblogs.com/jiqingwu/p/4043556.html
+
+** 使度脑图
+   http://linusp.github.io/2014/01/06/freemind-with-org-mode.html
+
+** 如何使用org-capture-template来构建自己的capture快捷键，使用该网页的方法，可以把所有的TODO任务按照时间顺序排序，这样任务的结构更加清晰。 
+   http://members.optusnet.com.au/~charles57/GTD/datetree.html
+
+** Emacs china论坛
+   https://emacs-china.org/
+
+** DocFetcher是一个Linux下的桌面搜索工具，它可以快速的在指定的文件夹搜索特定关键字 
+   与everything不同的是，这个软件可以实现基于内容的查询(该软件已经传到
+   微云的tools目录之下)。
+   https://sourceforge.net/projects/docfetcher/?source=typ_redirect
+
+**  emacs的安装包下载网址，可以查询各类安装包的使用和配置方法。
+   http://melpa.org/#/
+
+**  elpa的国内镜像地址，由子龙山人维护于阿里云端
+   使用方法如下 ，根据你的需求，设置 package-archives ，比如用 GNU ELPA 和 MELPA：
+   (setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+                         ("melpa"
+                         . "http://elpa.zilongshanren.com/melpa/")))
+   经验证，需要复制上述两行配置覆盖掉原始的额init.el文件中的内容才可以
+   生效。
+
+   http://elpa.emacs-china.org/
+
+**  在Emacs中画思维导图
+   http://www.cnblogs.com/jiqingwu/p/4043556.html
+
+**  如何在 Org-mode 中指定重复任务的结束日期？
+    子龙山人提供的方法如下：
+   上午10:00-12:00 算法分析与设计
+ # <%%(and (diary-block 7 24 2016 8 24 2016) (and (= 0 (calendar-day-of-week date) ) (not (diary-block 8 1 2016 8 8 2016))))>
+   我不知道你的第几周到第几周的精确日期是多少，但是我上面的可以当作参考。 上面我写的是：从 2016-7-24 到 2016-8-24 每周日，但是不包含 2016-8-1 到 2016-8-8（这个是你要跳过的日期）,至于 schedule 的时间，只能写在 headline 里面了。
+Reference: http://stackoverflow.com/questions/2464598/org-mode-schedule-weekly-event-for-a-period
+   仿照上述方法对周六的机器人系统设计基础的实验进行了重新修改，将十一
+   期间的两次周六实验的安排去除掉。
+ # <%%(not (diary-block 10 1 2016 10 8 2016))>
+ # <%%(and (diary-block 9 22 2016 10 18 2016) (and (= 0 (calendar-day-of-week date) ) (not (diary-block 10 1 2016 10 8 2016))))>
+  其中第二个括号中的0代表每周的第一天，所以周日用0来表示，周一用1表示，
+   以此类推，按照这种方式改写上课的时间后，可以跳过十一放假的时间段，
+   还不会出现课程结束后继续重复开启任务的现象，但是这种方式的问题在于，
+   每周的任务完成后不能将任务标注为Done的状态，但是使用schdule ++1w的
+   方式可以对每次的任务markdown，会自动用下一次任务的启动时间重新改写
+   TODO的任务，但是这种方式要求连续的时间段，并且任务结束后要手动将
+   ++1w去掉才能消除任务的影响。
+   https://emacs-china.org/t/org-mode/776/9
+
+* Notes								      :Notes:
+
+** [2016-09-12 周一 11:30] 在一个链接上按C-c C-o即可访问，至于调用什么程序访问，取决于链接的内容，emacs和org mode的配置了。通过org-toggle-link-display可以显示org文档中的链接地址信息。
+
+
+** 经验证，在agenda中重新配置agenda路径之后可以同时包含本地和360云盘上的所有org文件了，这样，可以将任务同步到云盘上，在不同的机器上维护和使用同一个任务列表和笔记列表。 注意第一项的路径用左斜线才能被org正常识别，之前用的是两条向右的斜线，始终无法添加功能。
+   D:/360CloudUI/Cache/536162294/gtd
+   ~/.emacs.d/org
+    
+   输入于： [2016-09-12 周一 22:42]
+** 删除minor-mode的显示，即不在emacs下方显示一长串的子模式   在init.el文件中添加如下配置信息 (setq minor-mode-alist nil)  ;;
+   输入于： [2016-09-13 周二 11:46]
+
+
+
+
+
+* 2016								    
+** 2016-09 九月
+*** 2016-09-16 星期五
+**** ORG-Capture设置中的格式要求				      :Notes:
+     在org-capture中设置格式时，设置中的空格会在capture中显示出来，如
+     果觉得某些地方没有对齐，可以通过添加空格的方式在格式中修正。 
+     Added: [2016-09-16 周五 18:40]
+*** 2016-09-17 星期六
+**** 解决QQ无法显示群名片的问题					      :Notes:
+     参考网络上提供的方法，对于QQ无法显示群名片的问题，无论是重新安装
+     QQ，升级QQ都无法解决，后来在QQ的登陆界面中，删除对应的登陆账号，
+     并且把与该登陆账号对应的所有文件夹中的内容都自动删除后，重新登陆
+     QQ得到一个纯净版本的系统，此时的群名片显示正常，问题解决。 
+     Added: [2016-09-17 周六 11:05]
+*** 2016-09-18 星期日
+*** 2016-09-21 星期三
+**** 如何将每周的课程安排到ORG中				      :Notes:
+      例如： 机器人系统设计基础课程 1-8周 周三1-2节 9205 
+       在配置中添加当天的上课时间段，然后在时间段的最后加上 ”+1w“代
+       表一周重复一次,通过快捷键添加起始的时间和结束的时间，即可在每天
+       的日程安排中看到上课的时间和地点信息了，这种方式比直接通过diary
+       日记的方式添加上课信息要直观一些，可以设置时间段，不会一直重复。
+     #  <2016-09-28 周三 08:00-09:40 +1w>
+     Added: [2016-09-21 周三 10:43]
+
+**** Graphviz 可以方便地表达概念之间的联系，因此用它画思维导图是可行的，再加上它是个命令行工具，因此可以集成到emacs中作为画图工具 
+ 1. 在windows下安装了=graphviz=工具可以通过dot命令将dot类型的文件编译
+   （ C-c c）后生成png或者jpg格式的图片，直接在emacs中可以显示出效果。
+   C-c p可以查看预览效果。
+
+   dot格式的示例程序如下：
+   - digraph structs {
+  node [shape=record];
+  struct1 [label="<f0> left|<f1> middle|<f2> right"];
+  struct2 [label="<f0> one|<f2> two"];
+  struct3 [label="hello\nworld |{ b |{ c|<here> d|e}| f}| g | h"];
+  struct1: f1 -> struct2:f0;
+  struct1: f2 -> struct3:here;
+}
+  可以编译并且预览脑图图片。
+   
+ 2. 各位都知道通过graphviz-dot-mode来在Emacs中绘制思维导图的方式。不过
+    其实我们还可以直接将org-mode文档导出成思维导图(Freemind格式文件,高
+    版本emacs才能够支持,需要提供ox-freemind.el的包予以支持，目前该软件
+    包在spacemacs的安装路径下面找到了，该包已经上传到了微云的freemind
+    目录之下)。
+    然后在写好org-mode文档后，执行org-freemind-export-to-freemind后就
+    - 可以将org文件导出成Freemind([[D:\weiyun-4518344\tools\FreeMind-Windows-Installer-1.0.0.exe][freemind安装文件]])格式的思维导图文件，
+    用Freemind打开对外观进行调整后就可以导出成图片了，emacs在调用graphviz工具时使用的最
+    重要的一个工具时dot.exe程序，因此需要把该程序目录添加至PATH，或者
+    直接将其添加到emacs的bin目录之下，该目录已经在PATH之中。
+   输入于： [2016-09-15 周四 14:44]
+
+
+**** 使用docfetcher软件可以实现基于文件内容的检索
+   针对emacs24.5的文件夹建立索引后，可以快速的找到包含“重要”字符的
+   文件，之前使用pt或者ag软件都只能在对应的目录下才能找到，无法实现特
+   殊目录下文件内容的查询，以后可以进一步使用该软件。
+   输入于： [2016-09-17 周六 12:34]
+
+*** 2016-09-22 星期四
+**** Cdlatex的安装与使用，可以自动补全LaTeX语法			      :Notes:
+      基本不需要配置任何信息，直接安装后即可完成自动补全功能。
+     Added: [2016-09-22 周四 12:25]
